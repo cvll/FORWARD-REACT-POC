@@ -2,6 +2,8 @@ var mountNode = document.getElementById('map');
 var map;
 var data;
 var ref;
+var filterRef;
+var item_data;
 /*var MyMarker = React.createClass({displayName: "MyMarker",
   render: function() {
     var marker = new google.maps.Marker({
@@ -25,6 +27,22 @@ var updateLocations = function() {
     ref.updateMarkerLocation(newData);
 }
 
+var MyFilterComponent = React.createClass({displayName:"MyFilterComponent",
+    getInitialState: function() {
+      return {filter:'All'};
+    },
+    onChange: function() {
+      console.log("change happened");
+    },
+    render: function() {
+      var createOption = function(item,idx) {
+        return React.createElement('option',{value:item},item);
+      }
+      return React.createElement('select',{onChange:this.onChange},this.props.items.map(createOption,this));
+    }
+});
+
+
 var MyGoogleMap = React.createClass({displayName: "MyGoogleMap",
   getInitialState: function() {
     return {initial:true,markers: []};
@@ -32,8 +50,6 @@ var MyGoogleMap = React.createClass({displayName: "MyGoogleMap",
   updateMarkerLocation: function(locs) {
     for (var i = 0 ; i < locs.length ; i++) {
       var tmp = this.state.markers[i].getPosition();
-          console.log('Lat diff: ' + tmp.lat() - locs[i].lat());
-          console.log('Lng diff: ' + tmp.lng() - locs[i].lng());
           this.state.markers[i].setPosition(locs[i]);
     }
     this.props.locations = locs;
@@ -67,6 +83,9 @@ var MyGoogleMap = React.createClass({displayName: "MyGoogleMap",
   }
 });
 
+
+
+
 var init = function() {
   
   data = [
@@ -76,9 +95,10 @@ var init = function() {
    new google.maps.LatLng (32.881755, -117.235091),
    new google.maps.LatLng (32.876998, -117.235048)
 ];
-
+  item_data = ['All','Car','Truck'];
+  var fNode = document.getElementById('filter');
   ref = React.render(React.createElement(MyGoogleMap, {locations:data}), mountNode);
-  
+  filterRef = React.render(React.createElement(MyFilterComponent,{items:item_data}),document.getElementById('filter'));
   setInterval(function() {
     console.log("interval running..");
       updateLocations();
