@@ -18,7 +18,5 @@ var updateLocations = function() {
 }
 /*
   // Used to simulate live data by constantly updating the marker locations
-setInterval(function() {
-      updateLocations();
-     }, 150);
+
      */

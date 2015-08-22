@@ -13,9 +13,6 @@ var MyGoogleMap = React.createClass({displayName: "MyGoogleMap",
    
     return {createMarkers:f, map:null,markers: []};
   },
-  createMap: function() {
-      // create the map
-  },
   getLocations: function() {
     var locs =[];
     
@@ -38,6 +35,7 @@ var MyGoogleMap = React.createClass({displayName: "MyGoogleMap",
         center: {lat: 32.879632, lng: -117.235687},
         zoom: 15,
       });
+      this.setState({map:tmp_map});
   },
   hideLocation: function(i) {
     this.state.markers[i].setVisibility(false);
@@ -52,7 +50,8 @@ var MyGoogleMap = React.createClass({displayName: "MyGoogleMap",
       m[i].setMap(null);
       delete m[i];
     }
-    this.setState({markers:[]});
+    
+    this.state.markers = [];
   },
   showAllLocations: function() {
     var m = this.getMarkers();
@@ -62,6 +61,8 @@ var MyGoogleMap = React.createClass({displayName: "MyGoogleMap",
   },
   
   render: function() {
+    this.deleteAllLocations();
+    
     this.props.locations.map(this.state.createMarkers,this);
     return React.createElement('div',{id:'gmap'});
   }
