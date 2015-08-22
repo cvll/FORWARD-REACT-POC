@@ -3,7 +3,8 @@ html, body {
 	margin: 0;
 	padding: 0;
 }
-#map {
-	height: 75%;
-	width: 75%;
+
+#gmap {
+	width: 500px;
+	height: 500px;
 }
