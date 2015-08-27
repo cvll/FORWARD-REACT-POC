@@ -13,7 +13,7 @@ var MyGoogleMap = React.createClass({displayName: "MyGoogleMap",
    
     return {createMarkers:f, map:null,markers: []};
   },
-  getLocations: function() {
+  /*getLocations: function() {
     var locs =[];
     
     for (var i =0 ; i < this.state.markers.length ; i++) {
@@ -22,13 +22,12 @@ var MyGoogleMap = React.createClass({displayName: "MyGoogleMap",
     }
     
     return locs;
-  },
+  },*/
   // used to update a marker's location
   updateLocation: function(i,loc) {
     
     var m = this.getMarkers();
     m[i].setPosition(loc);
-   
   },
   componentDidMount: function() {
     var tmp_map = new google.maps.Map(React.findDOMNode(this), {
