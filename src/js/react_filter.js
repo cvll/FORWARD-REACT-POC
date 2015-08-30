@@ -11,10 +11,10 @@ var MyDropMenu = React.createClass({displayName:"MyFilterComponent",
         return React.createElement('option',{value:item},item);
       }
       return (
-      React.createElement('div',null,
-      React.createElement('h5',null,this.props.title), 
-      React.createElement('select',{onChange:this.onChange},this.props.items.map(createOption,this))
-      )
+            React.createElement('div',null,
+                  React.createElement('h5',null,this.props.title), 
+                  React.createElement('select',{onChange:this.onChange},this.props.items.map(createOption,this))
+            )
       )
     }
 });
