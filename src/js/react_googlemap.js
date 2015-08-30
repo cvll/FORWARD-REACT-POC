@@ -1,9 +1,7 @@
 // React Google Component
 
 /* 8/29: Now updated to use a 'dictionary' of markers with the index as its key
-         The prop locations now represent the new location data to display on the map.
-         If an existing marker does not exist in the new props passed, it assumes it should
-         not exist and makes it invisible.
+         Prop locations represent changes in data. Presumes no change if marker not in new props
 */
 
 var MyGoogleMap = React.createClass({displayName: "MyGoogleMap",

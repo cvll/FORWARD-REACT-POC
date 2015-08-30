@@ -54,7 +54,3 @@ var updateLocations = function() {
 }
 
 
-// Constantly updates locations of ORIGINAL_DATA  
-setInterval(function() {
-  updateLocations();
-  }, 150);

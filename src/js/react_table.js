@@ -28,11 +28,13 @@ var MyTableRow = React.createClass({displayName:"MyTableRow",
       var createTd = function(d) {
           var tds = [];
           
+          //iterate through all keys of data to put in a row
           for (var key in d) {
             if (d.hasOwnProperty(key)) {
                 tds.push(React.createElement('td',{},d[key].toString()));
             }
           }
+          
           return tds;
       };
       return React.createElement('tr',{key:this.state.data.id,onChange:this.onChange},{children: createTd(this.state.data)});
