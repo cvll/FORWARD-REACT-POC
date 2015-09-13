@@ -158,8 +158,12 @@ var app = React.createClass({displayName:"app",
       }
     },
     pingVehicle(id) {
-      this.state.activeMarker = id;
-      this.handleUpdate(this.state.data);
+      if (!this.state.data[id]) {
+        alert("Id " + id + " does not exist");
+      } else {
+        this.state.activeMarker = id;
+        this.handleUpdate(this.state.data);
+      }
     },
     render: function() {
       // Must render map first to provide a reference , 
