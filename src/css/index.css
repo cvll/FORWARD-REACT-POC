@@ -9,6 +9,56 @@ html, body {
 	height: 500px;
 }
 
-table, th, td {
+#tbl {
+	position: relative;
+	top: -500px;
+	left: 500px;
     border: 1px solid black;
+}
+
+th,td {
+    border: 1px solid black;	
+}
+
+#f1 {
+	position:relative;
+	top: -80px;
+	left: 100px;	
+
+}
+
+#f2 {
+	position: relative;
+	top: -160px;
+	left: 220px;
+	
+}
+
+#dataVis {
+	position: relative;
+	top: -200px;
+	
+}
+#add {
+	position: relative;
+	top: -240px;
+	left: 650px;
+}
+#delete {
+	position: relative;
+	top: -200px;
+	left: 400px;
+	
+}
+
+#update {
+	position: relative;
+	top: -240px;
+	left: 650px;
+}
+
+#ping {
+	position: relative;
+	top: -200px;
+	left: 400px;
 }

@@ -10,7 +10,7 @@ var MyTable = React.createClass({displayName:"MyTable",
             return React.createElement(MyTableRow,{data:item})
         };
 		return (
-            React.createElement('table',{},
+            React.createElement('table',{id: "tbl"},
                 React.createElement('tbody',{},
                 this.state.data.map(createRow,this)))
         )
